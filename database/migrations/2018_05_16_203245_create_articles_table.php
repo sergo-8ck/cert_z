@@ -15,26 +15,25 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('title'); //ФИО
+            $table->string('slug')->unique(); // уникальное значение
 //            $table->text('description_short')->nullable();
-            $table->text('date');
-            $table->text('document');
-            $table->text('datedoc')->nullable();
-            $table->text('description')->nullable();
-//            $table->string('image')->nullable();
-//            $table->boolean('image_show')->nullable();
-//            $table->string('meta_title')->nullable();
-//            $table->string('meta_description')->nullable();
-//            $table->string('meta_keyword')->nullable();
-            $table->boolean('published');
-//            $table->integer('viewed')->nullable();
-            $table->integer('created_by')->nullable();
-            $table->integer('modified_by')->nullable();
+            $table->string('author'); //Кто выдал
+            $table->string('applicant'); //Заявитель
+            $table->string('manufacturer'); //Изготовитель
+            $table->integer('product')->default(1); // Продукция или услуга
+            $table->string('product_title'); //Наименование продукции или услуги
+            $table->string('meets_requirements'); //Соответствует требованиям
+            $table->string('base'); //Выдан на основании
+            $table->date('date_debut'); // дата выдачи
+            $table->date('date_fin'); // срок действия
+            $table->integer('status')->default(1); // Продукция или услуга
+            $table->text('description')->nullable(); // комментарий
+            $table->integer('created_by')->nullable(); // кто создал
+            $table->integer('modified_by')->nullable(); // кто редактировал
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

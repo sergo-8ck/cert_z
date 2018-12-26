@@ -3,18 +3,15 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumb')
-            @slot('title') Список учеников @endslot
+            @slot('title') Список сертификатов @endslot
             @slot('parent') Главная @endslot
-            @slot('active') Ученики
-                @if($showCat)
-                    профессии <b>({{ $category->pluck('title')->implode(', ') }})</b>
-                @endif
+            @slot('active') Сертификаты
             @endslot
         @endcomponent
         <hr>
             @role('superuser')
                 <a href="{{route('admin.article.create')}}" class="btn btn-primary ">
-                    <i class="fa fa-plus-square-o"></i> Добавить ученика
+                    <i class="fa fa-plus-square-o"></i> Добавить сертификат
                 </a>
             @endrole
 
@@ -27,7 +24,7 @@
         <table class="table table-striped">
             <thead>
             <th>Наименование</th>
-            <th>Публикация</th>
+            <th>Статус</th>
             <th>Действие</th>
             </thead>
             <tbody>
@@ -36,7 +33,7 @@
                     <td>
                         <a href="{{route('article', $article->slug)}}">{{$article->title}}</a>
                         </td>
-                    <td>{{$article->published}}</td>
+                    <td>{{config('article.status.' . $article->status . '.name')}}</td>
                     <td>
 
                         <form onsubmit="if(confirm('Вы действительно хотите удалить ученика?')){return true}else{return false}" action="{{route('admin.article.destroy', $article)}}"  method="post">

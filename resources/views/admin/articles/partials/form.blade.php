@@ -1,87 +1,103 @@
 <div class="form-group">
     <label for="">Статус</label>
-    <select name="published" class="form-control">
-    @if (isset($article->id))
-            <option value="1" @if ($article->published == 1) selected="" @endif>Опубликовано</option>
-            <option value="0" @if ($article->published == 0) selected="" @endif>Не опубликовано</option>
+    <select name="status" class="form-control">
+        @if (isset($article->id))
+            <option value="1" @if ($article->status == 1) selected="" @endif>Действует
+            </option>
+            <option value="2" @if ($article->status == 2) selected="" @endif>Приостановлен
+            </option>
+            <option value="3" @if ($article->status == 3) selected="" @endif>Отозван
+            </option>
+            <option value="4" @if ($article->status == 4) selected="" @endif>Не действует
+            </option>
         @else
-            <option value="1">Опубликовано</option>
-            <option value="0">Не опубликовано</option>
+            <option value="1">Действует</option>
+            <option value="2">Приостановлен</option>
+            <option value="3">Отозван</option>
+            <option value="4">Не действует</option>
         @endif
     </select>
 </div>
 <div class="form-group">
     <label for="">Фамили Имя Отчество</label>
-    <input type="text" class="form-control" name="title" placeholder="Фамили Имя Отчество" value="{{$article->title or ""}}" required>
+    <input type="text" class="form-control" name="title" placeholder="Фамили Имя Отчество"
+           value="{{$article->title or ""}}" required>
 </div>
 
 <div class="form-group">
     <label for="">Slug (уникальное значение)</label>
-    <input type="text" class="form-control" name="slug" placeholder="Автоматическая генерация" value="{{$article->slug or ""}}" readonly="">
-</div>
-<div class="form-group">
-    <label for="">Программа обучения</label>
-    <select class="form-control" name="categories[]" multiple="">
-        @include('admin.articles.partials.categories', ['categories' => $categories])
-    </select>
-</div>
-{{--<label for="">Краткое описание</label>--}}
-{{--<textarea class="form-control" id="description_short" name="description_short">{{$article->description_short or ""}}</textarea>--}}
-
-<div class="form-group">
-    <label for="">Дата окончания обучения</label>
-    <input type="date" name="date" class="form-control" value="{{$article->date or old('date', date('Y-m-d'))}}" required>
+    <input type="text" class="form-control" name="slug" placeholder="Автоматическая генерация"
+           value="{{$article->slug or ""}}" readonly="">
 </div>
 
+<div class="form-group">
+    <label for="">Кто выдал</label>
+    <input type="text" class="form-control" name="author" placeholder="Кто выдал"
+           value="{{$article->author or ""}}" required>
+</div>
 
 <div class="form-group">
-    <label for="">Документ</label>
-    <select id="docvidselect" name="docvid" class="form-control">
+    <label for="">Заявитель</label>
+    <input type="text" class="form-control" name="applicant" placeholder="Заявитель"
+           value="{{$article->applicant or ""}}" required>
+</div>
+
+<div class="form-group">
+    <label for="">Изготовитель</label>
+    <input type="text" class="form-control" name="manufacturer" placeholder="Изготовитель"
+           value="{{$article->manufacturer or ""}}" required>
+</div>
+
+<div class="form-group">
+    <label for="">Продукция или услуга</label>
+    <select id="docvidselect" name="product" class="form-control">
         @if (isset($article->id))
-            <option value="1" @if (isset($article->datedoc)) selected="" @endif>Свидетельство</option>
-            <option value="0" @if (!isset($article->datedoc)) selected="" @endif>Диплом</option>
+            <option value="1" @if ($article->product == 1) selected="" @endif>Продукция
+            </option>
+            <option value="0" @if ($article->product == 0) selected="" @endif>Услуга</option>
         @else
-            <option value="1">Свидетельство</option>
-            <option value="0">Диплом</option>
+            <option value="1">Продукция</option>
+            <option value="0">Услуга</option>
         @endif
     </select>
-
-
-
-
-
-
-
-
-
-
 </div>
+
 <div class="form-group">
-    <label for="">Номер документа</label>
-    <input type="text" class="form-control" name="document" placeholder="Номер документа" value="{{$article->document or ""}}" required>
+    <label for="">Наименование продукции или услуги</label>
+    <input type="text" class="form-control" name="product_title" placeholder="Наименование"
+           value="{{$article->product_title or ""}}" required>
 </div>
-@if (isset($article->id))
-@if (isset($article->datedoc))
-<div class="form-group" id="srokdoc">
-    <label for="">Срок действия документа</label>
-    <input type="date" id="srokdocinput" name="datedoc" class="form-control" value="{{$article->datedoc or old('datedoc', date('Y-m-d'))}}">
+
+<div class="form-group">
+    <label for="">Соответствует требованиям</label>
+    <input type="text" class="form-control" name="meets_requirements" placeholder="Соответствует требованиям"
+           value="{{$article->meets_requirements or ""}}" required>
 </div>
-@elseif(!isset($article->datedoc))
-<div class="form-group" id="srokdoc" style="display: none;">
-    <label for="">Срок действия документа</label>
-    <input type="text" id="srokdocinput" name="datedoc" class="form-control" value="">
+
+<div class="form-group">
+    <label for="">Выдан на основании</label>
+    <input type="text" class="form-control" name="base" placeholder="Выдан на основании"
+           value="{{$article->base or ""}}" required>
 </div>
-@endif
-@else
-    <div class="form-group" id="srokdoc">
-        <label for="">Срок действия документа</label>
-        <input type="date" id="srokdocinput" name="datedoc" class="form-control" value="{{$article->datedoc or old('datedoc', date('Y-m-d'))}}">
-    </div>
-@endif
+
+<div class="form-group">
+    <label for="">Дата выдачи</label>
+    <input type="date" name="date_debut" class="form-control"
+           value="{{$article->date_debut or old('date_debut', date('Y-m-d'))}}" required>
+</div>
+
+<div class="form-group">
+    <label for="">Срок действия</label>
+    <input type="date" name="date_fin" class="form-control"
+           value="{{$article->date_fin or old('date_fin', date('Y-m-d'))}}" required>
+</div>
+
 <div class="form-group">
     <label for="">Комментарий</label>
-    <textarea class="form-control" id="description" name="description">{{$article->description or ""}}</textarea>
+    <textarea class="form-control" id="description"
+              name="description">{{$article->description or ""}}</textarea>
 </div>
+
 <hr>
 
 <hr>

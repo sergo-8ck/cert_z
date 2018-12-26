@@ -24,38 +24,13 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $s = $request->input('s');
-//        dd($request->getBaseUrl());
-//        dd($request->query());
-        $string = $request->url();
-        $pattern = '/(^.*?\/article\/cat)\/(\d+)/i';
-        $pattern2 = '/(^.*?\/article)/i';
-        $replacement = '$2';
-        $replacement2 = '';
-        $q = preg_replace($pattern, $replacement, $string);
-        $q = preg_replace($pattern2, $replacement2, $q);
 
-
-
-//        dd($q);
-        if($q){
-            return view('admin.articles.index', [
-                'articles' => Article::orderBy('articles.created_at', 'desc')
-                    ->search($s)
-                    ->searchforcat($q)
-                    ->paginate(10),
-                'showCat' => $q,
-                'category' => Category::where('id', $q),
-            ]);
-        }
-        else{
-            return view('admin.articles.index', [
-                'articles' => Article::orderBy('articles.created_at', 'desc')
-                    ->search($s)
-                    ->paginate(10),
-                'showCat' => ''
-            ]);
-        }
+        return view('admin.articles.index', [
+            'articles' => Article::orderBy('articles.created_at', 'desc')
+                ->search($request->s)
+                ->paginate(10),
+            'showCat' => ''
+        ]);
     }
 
     /**
@@ -67,7 +42,7 @@ class ArticleController extends Controller
     {
         return view('admin.articles.create', [
             'article'    => [],
-            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'categories' => '',
             'delimiter'  => ''
         ]);
     }
@@ -80,12 +55,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article = Article::create($request->all());
-
-        //Categories
-        if($request->input('categories')) :
-            $article->categories()->attach($request->input('categories'));
-        endif;
+        Article::create($request->all());
 
         return redirect()->route('admin.article.index');
     }
@@ -111,7 +81,7 @@ class ArticleController extends Controller
     {
         return view('admin.articles.edit', [
             'article'    => $article,
-            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'categories' => '',
             'delimiter'  => ''
         ]);
     }
@@ -127,24 +97,17 @@ class ArticleController extends Controller
     {
         $article->update($request->except('slug'));
 
-        //Categories
-        $article->categories()->detach();
-        if($request->input('categories')) :
-            $article->categories()->attach($request->input('categories'));
-        endif;
-
         return redirect()->route('admin.article.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param Article $article
      *
-     * @param  \App\Article  $article
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Article $article)
     {
-        $article->categories()->detach();
         $article->delete();
 
         return redirect()->route('admin.article.index');

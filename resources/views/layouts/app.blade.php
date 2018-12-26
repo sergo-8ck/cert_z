@@ -38,7 +38,12 @@
                 <a href="#">Наверх</a>
             </p>
             <p>Центр дистанционного обучения</p>
-            <p>Учебный центр АНО ВНИИС ПродМаш <a href="https://www.vis77.ru/">www.vis77.ru</a></p>
+            <p>
+                Учебный центр АНО ВНИИС ПродМаш
+                <a href="https://certificate.zone/">
+                    www.certificate.zone
+                </a>
+            </p>
         </div>
     </footer>
 
