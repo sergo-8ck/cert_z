@@ -14,6 +14,7 @@ class Article extends Model
     protected $fillable = [
         'title',
         'slug',
+        'doc_number',
         'author',
         'applicant',
         'manufacturer',
@@ -57,7 +58,7 @@ class Article extends Model
     }
 
     public function scopeSearchblog($query, $s, $d) {
-        return $query->where('document', 'like', '%' .$s. '%')
-            ->where('date', 'like', '%' .$d. '%');
+        return $query->where('doc_number', 'like', '%' .$s. '%')
+            ->where('date_fin', 'like', '%' .$d. '%');
     }
 }

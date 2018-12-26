@@ -25,15 +25,22 @@
                 <form action="{{ URL::to('home') }}" method="POST" role="search" class="form-inline input-group py-4">
                     {{ csrf_field() }}
                     <label for="s" class="px-4"><b>Номер документа:</b> </label>
-                    <input type="text" class="form-control mr-sm-2" name="s" placeholder="ХХХХХ-ХХХХХХ" pattern="[0-9]{5}-[0-9]{6}" minlength="12" required>
-                    <label for="d" class="px-4"><b>Дата документа:</b> </label>
-                    <input type="date" class="form-control mr-sm-2" name="d" placeholder="XX.XX.XXXX" required>
+                    <input type="text" class="form-control mr-sm-2"
+                           name="s"
+                           placeholder="RU A-RU.AA11.A.11111 или RU 1111111"
+                           pattern="[A-Za-z]{2}\s[A-Za-z]-[A-Za-z]{2}.[A-Za-z]{2}[0-9]{2}.[A-Za-z].[0-9]{5}|[A-Za-z]{2}\s[0-9]{7}"
+                           minlength="8"
+                           required>
+                    <label for="d" class="px-4"><b>Срок действия документа:</b> </label>
+                    <input type="date" class="form-control mr-sm-2" name="d" required>
                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Поиск</button>
                 </form>
 
-                <p>Чтобы найти выпускника учебного центра АНО ВНИИС ПродМаш воспользуйтесь поиском по реестру. </p>
-                <p>Для этого нужно ввести в поле поиска номер документа выпускника в следующем формате:     <span class="font-weight-bold">ХХХХХ-ХХХХХХ</span>, где вместо <span class="font-weight-bold">Х</span> должна быть цифра. </p>
-                <p>Например: <span class="text-monospace font-weight-bold">12345-678901</span> (пять знаков и шесть)</p>
+                <p>Чтобы найти сертификат учебного центра АНО ВНИИС ПродМаш воспользуйтесь
+                    поиском по реестру. </p>
+                <p>Для этого нужно ввести в поле поиска номер сертификата или номер бланка в
+                    следующем формате:     <span class="font-weight-bold">RU A-RU.AA11.A
+                        .11111</span> или <span>RU 1111111</span>.</p>
             @if(isset($details))
                     <div class="alert alert-info" role="alert">
                         <p>Результат поиска по запросу: <span class="text-monospace font-weight-bold"> {{$query}}</span>.</p>
@@ -47,7 +54,6 @@
                     </thead>
                     <tbody>
                     @foreach ($details as $artic)
-{{--                        @if($s==$article->document and $d==$article->date)--}}
                             <tr>
                                 <td>
                                     <a href="{{route('article', $artic->slug)}}">{{$artic->title}}</a>

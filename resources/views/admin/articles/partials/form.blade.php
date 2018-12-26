@@ -31,6 +31,12 @@
 </div>
 
 <div class="form-group">
+    <label for="">Номер документа</label>
+    <input type="text" class="form-control" name="doc_number" placeholder="Номер документа"
+           value="{{$article->doc_number or ""}}" required>
+</div>
+
+<div class="form-group">
     <label for="">Кто выдал</label>
     <input type="text" class="form-control" name="author" placeholder="Кто выдал"
            value="{{$article->author or ""}}" required>

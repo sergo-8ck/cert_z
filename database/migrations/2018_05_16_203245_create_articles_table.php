@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title'); //ФИО
             $table->string('slug')->unique(); // уникальное значение
 //            $table->text('description_short')->nullable();
+            $table->string('doc_number'); //Номер документа
             $table->string('author'); //Кто выдал
             $table->string('applicant'); //Заявитель
             $table->string('manufacturer'); //Изготовитель

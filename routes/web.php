@@ -29,8 +29,8 @@ Route::get('/', 'HomeController@index');
 //    print_r($_POST);
 //});
 
-Route::get('blog/category/{slug?}', 'BlogController@category')->name('category');
-Route::get('blog/article/{slug?}', 'BlogController@article')->name('article');
+//Route::get('blog/category/{slug?}', 'BlogController@category')->name('category');
+Route::get('cert/{slug?}', 'BlogController@article')->name('article');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'role:superuser'], function(){
 
@@ -74,8 +74,8 @@ Route::post('/home', function (){
     $s = Input::get('s');
     $d = Input::get('d');
     if($s != ' '){
-        $artic = Article::where('document', 'like', '%' .$s. '%')
-                            ->where('date', 'like', '%' .$d. '%')
+        $artic = Article::where('doc_number', 'like', '%' .$s. '%')
+                            ->where('date_fin', 'like', '%' .$d. '%')
                             ->get();
         if(count($artic) > 0)
             return view('blog.home')->withDetails($artic)->withQuery($s, $d);
