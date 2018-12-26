@@ -27,7 +27,7 @@
 <div class="form-group">
     <select name="roles[]" multiple>
         @foreach($allRoles as $role)
-            <option value="{{ $role->id }}">{{ $role->name }}</option>
+            <option value="{{ $role->id }}" selected="selected">{{ $role->name }}</option>
         @endforeach
     </select>
 </div>
