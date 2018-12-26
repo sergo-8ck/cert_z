@@ -76,6 +76,7 @@ Route::post('/home', function (){
     if($s != ' '){
         $artic = Article::where('doc_number', 'like', '%' .$s. '%')
                             ->where('date_fin', 'like', '%' .$d. '%')
+                            ->where('status', 1)
                             ->get();
         if(count($artic) > 0)
             return view('blog.home')->withDetails($artic)->withQuery($s, $d);
