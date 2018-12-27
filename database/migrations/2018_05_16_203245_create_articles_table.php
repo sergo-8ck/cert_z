@@ -15,12 +15,11 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title'); //ФИО
+            $table->string('title'); //Заявитель
             $table->string('slug')->unique(); // уникальное значение
 //            $table->text('description_short')->nullable();
             $table->string('doc_number'); //Номер документа
             $table->string('author'); //Кто выдал
-            $table->string('applicant'); //Заявитель
             $table->string('manufacturer'); //Изготовитель
             $table->integer('product')->default(1); // Продукция или услуга
             $table->string('product_title'); //Наименование продукции или услуги

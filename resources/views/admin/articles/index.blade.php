@@ -23,7 +23,8 @@
         <br>
         <table class="table table-striped">
             <thead>
-            <th>Наименование</th>
+            <th>Заявитель</th>
+            <th>Номер документа</th>
             <th>Статус</th>
             <th>Действие</th>
             </thead>
@@ -32,7 +33,8 @@
                 <tr>
                     <td>
                         <a href="{{route('article', $article->slug)}}">{{$article->title}}</a>
-                        </td>
+                    </td>
+                    <td>{{$article->doc_number}}</td>
                     <td>{{config('article.status.' . $article->status . '.name')}}</td>
                     <td>
 

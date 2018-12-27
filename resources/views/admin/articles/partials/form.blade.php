@@ -18,22 +18,17 @@
         @endif
     </select>
 </div>
+
 <div class="form-group">
-    <label for="">Фамили Имя Отчество</label>
-    <input type="text" class="form-control" name="title" placeholder="Фамили Имя Отчество"
-           value="{{$article->title or ""}}" required>
+    <label for="">Номер документа</label>
+    <input type="text" class="form-control" name="doc_number" placeholder="Номер документа"
+           value="{{$article->doc_number or ""}}" required>
 </div>
 
 <div class="form-group">
     <label for="">Slug (уникальное значение)</label>
     <input type="text" class="form-control" name="slug" placeholder="Автоматическая генерация"
            value="{{$article->slug or ""}}" readonly="">
-</div>
-
-<div class="form-group">
-    <label for="">Номер документа</label>
-    <input type="text" class="form-control" name="doc_number" placeholder="Номер документа"
-           value="{{$article->doc_number or ""}}" required>
 </div>
 
 <div class="form-group">
@@ -44,8 +39,8 @@
 
 <div class="form-group">
     <label for="">Заявитель</label>
-    <input type="text" class="form-control" name="applicant" placeholder="Заявитель"
-           value="{{$article->applicant or ""}}" required>
+    <input type="text" class="form-control" name="title" placeholder="Заявитель"
+           value="{{$article->title or ""}}" required>
 </div>
 
 <div class="form-group">

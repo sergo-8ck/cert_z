@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-12 col-sm-6 py-4">
                             <p><b>Кто выдал:</b> {!! $article->author !!}</p>
-                            <p><b>Заявитель:</b> {!! $article->applicant !!}</p>
+                            <p><b>Заявитель:</b> {!! $article->title !!}</p>
                             <p><b>Изготовитель:</b> {!! $article->manufacturer !!}</p>
                             <p><b>{{config('article.product.' .
                             $article->product . '.name')}}:</b> {!! $article->product_title!!}</p>

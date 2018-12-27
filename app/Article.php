@@ -16,7 +16,6 @@ class Article extends Model
         'slug',
         'doc_number',
         'author',
-        'applicant',
         'manufacturer',
         'product',
         'product_title',
@@ -32,7 +31,7 @@ class Article extends Model
 
     //Mutators
     public function setSlugAttribute($value){
-        $this->attributes['slug'] = Str::slug( mb_substr($this->title, 0, 40) . "-" . \Carbon\Carbon::now()->format('dmyHi'), '-');
+        $this->attributes['slug'] = Str::slug( mb_substr($this->doc_number, 0, 40) . "-" . \Carbon\Carbon::now()->format('dmyHi'), '-');
     }
 
     //Polymorphic relation with categories
