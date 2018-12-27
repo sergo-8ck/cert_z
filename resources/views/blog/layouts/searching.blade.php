@@ -14,8 +14,8 @@
 </form>
 
 <p>Чтобы найти сертификат АНО ВНИИС ПродМаш воспользуйтесь поиском по реестру. </p>
-<p>Для этого нужно ввести в поле поиска номер сертификата или номер бланка вследующем формате:
-    <span class="font-weight-bold">RU A-RU.AA11.A.11111</span> или <span>RU 1111111</span>.</p>
+<p>Для этого нужно ввести в поле поиска номер сертификата или номер бланка в следующем формате:
+    <span class="font-weight-bold">RU A-RU.AA11.A.11111</span> или <span class="font-weight-bold">RU 1111111</span>.</p>
 @if(isset($details))
     <div class="alert alert-info" role="alert">
         <p>

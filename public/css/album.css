@@ -38,12 +38,10 @@ footer {
 }
 
 .jumbotron-heading {
-    font-weight: 300;
+    font-weight: 500;
 }
 
-.jumbotron .container {
-    max-width: 40rem;
-}
+
 
 footer {
     padding-top: 3rem;
