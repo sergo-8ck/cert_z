@@ -36,8 +36,8 @@
                 <td>
                     <a href="{{route('article', $artic->slug)}}">{{$artic->title}}</a>
                 </td>
-                <td>{{$artic->document}}</td>
-                <td>{{$artic->date}}</td>
+                <td>{{$artic->doc_number}}</td>
+                <td>{{$artic->date_fin}}</td>
             </tr>
             {{--@endif--}}
         @endforeach

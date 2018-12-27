@@ -25,7 +25,9 @@
         <div class="album py-5 bg-light">
             <div class="container">
                 @include('blog.layouts.searching')
-                @include('blog.layouts.table')
+                @if(!isset($details))
+                    @include('blog.layouts.table')
+                @endif
                 @include('blog.layouts.license')
             </div>
         </div>
