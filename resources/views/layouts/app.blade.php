@@ -39,7 +39,7 @@
             </p>
             <p>Центр дистанционного обучения</p>
             <p>
-                Учебный центр АНО ВНИИС ПродМаш
+                АНО ВНИИС ПродМаш
                 <a href="https://certificate.zone/">
                     www.certificate.zone
                 </a>
