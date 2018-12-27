@@ -1,3 +1,6 @@
+<br>
+<h2>Схемы сертификации, применяемые при добровольной сертификации</h2>
+<br>
 <table class="table table-striped" style="text-align: center;">
     <thead>
     <tr>
