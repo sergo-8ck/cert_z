@@ -4,8 +4,8 @@
     <label for="s" class="px-4"><b>Номер документа:</b> </label>
     <input type="text" class="form-control mr-sm-2"
            name="s"
-           placeholder="RU A-RU.AA11.A.11111 или RU 1111111"
-           pattern="[A-Za-z]{2}\s[A-Za-z]-[A-Za-z]{2}.[A-Za-z]{2}[0-9]{2}.[A-Za-z].[0-9]{5}|[A-Za-z]{2}\s[0-9]{7}"
+           placeholder="RU A-RU.AA11.A.11111"
+           pattern="[A-Za-z]{2}\s[A-Za-z]-[A-Za-z]{2}.[A-Za-z]{2}[0-9]{2}.[A-Za-z].[0-9]{5}"
            minlength="8"
            required>
     <label for="d" class="px-4"><b>Срок действия документа:</b> </label>
@@ -15,7 +15,7 @@
 
 <p>Чтобы найти сертификат АНО ВНИИС ПродМаш воспользуйтесь поиском по реестру. </p>
 <p>Для этого нужно ввести в поле поиска номер сертификата или номер бланка в следующем формате:
-    <span class="font-weight-bold">RU A-RU.AA11.A.11111</span> или <span class="font-weight-bold">RU 1111111</span>.</p>
+    <span class="font-weight-bold">RU A-RU.AA11.A.11111</span>.</p>
 @if(isset($details))
     <div class="alert alert-info" role="alert">
         <p>
