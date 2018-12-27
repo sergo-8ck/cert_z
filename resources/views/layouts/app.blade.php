@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 
     <title>@yield('title')</title>
     <meta name="keywords" content="@yield('meta_keyword')">
