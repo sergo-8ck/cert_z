@@ -37,7 +37,6 @@
             <p class="float-right">
                 <a href="#">Наверх</a>
             </p>
-            <p>Центр дистанционного обучения</p>
             <p>
                 АНО ВНИИС ПродМаш
                 <a href="https://certificate.zone/">
