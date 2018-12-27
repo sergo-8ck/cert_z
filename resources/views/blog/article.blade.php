@@ -17,7 +17,9 @@
                         </div>
                         <div class="col-12 col-sm-6">
                             @role('superuser')
-                            <form onsubmit="if(confirm('Вы действительно хотите удалить ученика?')){return true}else{return false}" action="{{route('admin.article.destroy', $article)}}"  method="post">
+                            <form onsubmit="if(confirm('Вы действительно хотите удалить ' +
+                             'сертификат?')){return true}else{return false}" action="{{route
+                             ('admin.article.destroy', $article)}}"  method="post">
                                 <input type="hidden" name="_method" value="DELETE">
                                 {{csrf_field()}}
                                 <a href="{{route('admin.article.edit', $article)}}" class="btn btn-default"><i class="fa fa-edit"></i></a>
