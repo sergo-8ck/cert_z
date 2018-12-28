@@ -34,3 +34,13 @@
     </main>
 
 @endsection
+@section('scripts')
+<script>
+  $(document).ready(function () {
+      $(function(){
+        $.mask.definitions['h']='[A-Fa-f0-9]';
+        $("#searchmain").mask("RU h-RU.hh99.h.hhhhh");
+      });
+  });
+</script>
+@endsection

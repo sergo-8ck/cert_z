@@ -2,7 +2,9 @@
 <form action="{{ URL::to('home') }}" method="POST" role="search" class="form-inline input-group py-4">
     {{ csrf_field() }}
     <label for="s" class="px-4"><b>Номер документа:</b> </label>
-    <input type="text" class="form-control mr-sm-2"
+    <input type="text"
+           id="searchmain"
+           class="form-control mr-sm-2"
            name="s"
            placeholder="RU A-RU.AA11.A.11111"
            pattern="[A-Za-z]{2}\s[A-Za-z]-[A-Za-z]{2}.[A-Za-z]{2}[0-9]{2}.[A-Za-z].[0-9]{5}"
