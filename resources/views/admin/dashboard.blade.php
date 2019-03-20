@@ -32,7 +32,7 @@
                                 <h5 class="mb-1">{{$article->title}}</h5>
                             </div>
                             <p class="mb-1">
-                                {{$article->categories()->pluck('title')->implode(', ')}}
+                                {{$article->product_title}}
                             </p>
                         </a>
                     @endforeach
