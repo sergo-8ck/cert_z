@@ -110,11 +110,19 @@
         @yield('content')
     </main>
 </div>
-<!-- Scripts -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' defer></script>
 
 <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/index.js') }}" defer></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery.maskedinput.min.js')}}"></script>
+<script>
+	$(document).ready(function () {
+		$(function(){
+			$.mask.definitions['h']='[A-Fa-f0-9]';
+			$("#searchmain").mask("RU h-RU.hh99.h.hhhhh");
+		});
+	});
+</script>
 </body>
 </html>

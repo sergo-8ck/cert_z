@@ -21,8 +21,15 @@
 
 <div class="form-group">
     <label for="">Номер документа</label>
-    <input type="text" class="form-control" name="doc_number" placeholder="Номер документа"
-           value="{{$article->doc_number or ""}}" required>
+    <input type="text"
+           id="searchmain"
+           class="form-control"
+           name="doc_number"
+           placeholder="Номер документа"
+           value="{{$article->doc_number or ""}}"
+           pattern="[A-Za-z]{2}\s[A-Za-z]-[A-Za-z]{2}.[A-Za-z]{2}[0-9]{2}.[A-Za-z].[0-9]{5}"
+           minlength="8"
+           required>
 </div>
 
 <div class="form-group">

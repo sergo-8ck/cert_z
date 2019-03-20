@@ -49,16 +49,9 @@
 
 </div>
 
-<!-- Scripts -->
-{{--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' defer></script>--}}
-{{--<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js' defer></script>--}}
-{{--<script src='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.min.js' defer></script>--}}
-{{--<script src="{{ asset('dist/js/lightbox-plus-jquery.js') }}" defer></script>--}}
-{{--<script src="{{ asset('dist/js/lightbox.js') }}"></script>--}}
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/jquery.maskedinput.min.js')}}"></script>
 @yield('scripts')
-{{--<script src="{{ asset('js/index.js') }}" defer></script>--}}
 </body>
 </html>
