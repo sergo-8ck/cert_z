@@ -45,6 +45,7 @@
                             </p>
                             <p><b>Текущий статус:</b> {{config('article.status.' .
                             $article->status . '.name')}}</p>
+                            <p><b>Комментарий:</b> {!! $article->description !!}</p>
                         </div>
                         <div class="col-12 col-sm-6">
                             {!! QrCode::size(200)->margin(2)->generate('http://' .
