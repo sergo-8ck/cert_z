@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Главная')
-@section('meta_keyword', 'главная')
-@section('meta_description', 'Главная страница')
+@section('title', 'Главная | ' . config('app.name'))
+@section('meta_keyword', 'главная, ')
+@section('meta_description', 'Агентство по техническому регулированию и метрологии в добровольной системе сертификации «Открытая территория качества»')
 
 @section('content')
     <main role="main">
